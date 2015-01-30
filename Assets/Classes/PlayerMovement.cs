@@ -43,11 +43,15 @@ public class PlayerMovement : MonoBehaviour {
         #region turn
         if (Input.GetButtonDown("TurnLeft"))
         {
+            rigidbody.constraints = RigidbodyConstraints.None;
             transform.Rotate(0, 90f, 0);
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
         if (Input.GetButtonDown("TurnRight"))
         {
+            rigidbody.constraints = RigidbodyConstraints.None;
             transform.Rotate(0, -90f, 0);
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
         #endregion
 
