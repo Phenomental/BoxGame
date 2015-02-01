@@ -6,16 +6,15 @@ public class PlayerMovement : MonoBehaviour {
     public float moveSpeed;
     public float maxSpeed = 5f;
     public GameObject explosion;
-    private Vector3 userInput;
+
+	public bool isGrounded = false;
     private Vector3 spawnPosition;
-    private bool isGrounded;
 
 	public Transform cam;
 
     void Start()
     {
         spawnPosition = transform.position;
-        isGrounded = false;
         Screen.showCursor = false;
     }
 
@@ -33,56 +32,74 @@ public class PlayerMovement : MonoBehaviour {
 
 
         if (transform.position.y >= 0.45 || transform.position.y <= 0.55)
-        {
-            if (isGrounded)
-            {
-                if (Input.GetButton("Forward"))
+		{
+       
+        if (transform.position.y < .55)
+			{
+
+                if(Input.GetButton("Forward"))
                 {
                     rigidbody.MovePosition(rigidbody.position + cameraRelativeForward * moveSpeed * Time.deltaTime);
                 }
-                if (Input.GetButton("Left"))
+                if(Input.GetButton("Left"))
                 {
                     rigidbody.MovePosition(rigidbody.position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
                 }
-                if (Input.GetButton("Right"))
+                if(Input.GetButton("Right"))
                 {
                     rigidbody.MovePosition(rigidbody.position + cameraRelativeRight * moveSpeed * Time.deltaTime);
                 }
-                if (Input.GetButton("Reverse"))
+                if(Input.GetButton("Reverse"))
                 {
                     rigidbody.MovePosition(rigidbody.position + cameraRelativeBack * moveSpeed * Time.deltaTime);
                 }
+			
             }
         }
+     
 
-        if (Input.GetKey(KeyCode.Space))
+     
+        if (Input.GetButtonDown("TurnLeft"))
         {
-            if (isGrounded)
-                rigidbody.AddForce(0, 100f, 0);
+            rigidbody.constraints = RigidbodyConstraints.None;
+            transform.Rotate(0, 90f, 0);
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
 
-        if (Input.GetButtonDown("Reset"))
+        if (Input.GetButtonDown("TurnRight"))
+        {
+            rigidbody.constraints = RigidbodyConstraints.None;
+            transform.Rotate(0, -90f, 0);
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        }
+    
+
+        if(Input.GetButtonDown("Reset"))
         {
             Die();
         }
     }
 
+
     void OnCollisionExit(Collision hit)
     {
-        if (hit.transform.tag == "Ground")
+        if(hit.transform.tag == "Ground")
             isGrounded = false;
     }
 
 	void OnCollisionEnter(Collision hit)
+
     {
-        if (hit.transform.tag == "Enemy")
+        if(hit.transform.tag == "Enemy")
             Die();
 
-        if (hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
+
+        if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
         { 
             isGrounded = true;
             rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
+
     }
 
     void Die()
