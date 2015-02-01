@@ -16,7 +16,8 @@ public class CameraTurn : MonoBehaviour {
 
         if (Input.GetButtonDown("TurnLeft"))
         {
-            player.transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
+
+            //player.transform.Rotate(90, 0, 0, Space.Self);
 
             if (!animation.isPlaying)
             {
@@ -32,7 +33,7 @@ public class CameraTurn : MonoBehaviour {
         }
         else if (Input.GetButton("TurnRight"))
         {
-            player.transform.rotation = Quaternion.AngleAxis(-90, Vector3.up);
+            //player.transform.Rotate(-90, 0, 0, Space.Self);
 
             if (!animation.isPlaying)
             {
