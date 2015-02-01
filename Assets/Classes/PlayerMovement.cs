@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 spawnPosition;
     private bool isGrounded;
 
+	public Transform cam;
 
     void Start()
     {
@@ -21,19 +22,15 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() 
 	{
-        //Transform camF = Camera.main.transform;
-        //Vector3 cameraRelativeForward = camF.TransformDirection(Vector3.forward);
 
-        //Transform camR = Camera.main.transform;
-        //Vector3 cameraRelativeRight = camR.TransformDirection(Vector3.right);
+	        Vector3 cameraRelativeForward = cam.TransformDirection(Vector3.forward);
+		
+	       	Vector3 cameraRelativeRight = cam.TransformDirection(Vector3.right);
+	    
+	        Vector3 cameraRelativeLeft = cam.TransformDirection(Vector3.left);
+	        
+	        Vector3 cameraRelativeBack = cam.TransformDirection(Vector3.back);
 
-        //Transform camL = Camera.main.transform;
-        //Vector3 cameraRelativeLeft = camL.TransformDirection(Vector3.left);
-
-        //Transform camB = Camera.main.transform;
-        //Vector3 cameraRelativeBack = camB.TransformDirection(Vector3.back);
-
-		//transform.LookAt(Cube.position);
 
         if (transform.position.y >= 0.45 || transform.position.y <= 0.55)
         {
@@ -41,19 +38,19 @@ public class PlayerMovement : MonoBehaviour {
             {
                 if (Input.GetButton("Forward"))
                 {
-                    rigidbody.MovePosition(rigidbody.position + Vector3.forward * moveSpeed * Time.deltaTime);
+                    rigidbody.MovePosition(rigidbody.position + cameraRelativeForward * moveSpeed * Time.deltaTime);
                 }
                 if (Input.GetButton("Left"))
                 {
-                    rigidbody.MovePosition(rigidbody.position - Vector3.right * moveSpeed * Time.deltaTime);
+                    rigidbody.MovePosition(rigidbody.position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
                 }
                 if (Input.GetButton("Right"))
                 {
-                    rigidbody.MovePosition(rigidbody.position + Vector3.right * moveSpeed * Time.deltaTime);
+                    rigidbody.MovePosition(rigidbody.position + cameraRelativeRight * moveSpeed * Time.deltaTime);
                 }
                 if (Input.GetButton("Reverse"))
                 {
-                    rigidbody.MovePosition(rigidbody.position - Vector3.forward * moveSpeed * Time.deltaTime);
+                    rigidbody.MovePosition(rigidbody.position + cameraRelativeBack * moveSpeed * Time.deltaTime);
                 }
             }
         }
@@ -70,18 +67,18 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnCollisionExit(Collision other)
+    void OnCollisionExit(Collision hit)
     {
-        if (other.transform.tag == "Ground")
+        if (hit.transform.tag == "Ground")
             isGrounded = false;
     }
 
-    void OnCollisionEnter(Collision other)
+	void OnCollisionEnter(Collision hit)
     {
-        if (other.transform.tag == "Enemy")
+        if (hit.transform.tag == "Enemy")
             Die();
 
-        if (other.transform.tag == "Ground" || other.transform.tag == "Wall")
+        if (hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
         { 
             isGrounded = true;
             rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
