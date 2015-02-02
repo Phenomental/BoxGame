@@ -17,7 +17,7 @@ public class CameraTurn : MonoBehaviour {
         if (Input.GetButtonDown("TurnLeft"))
         {
 
-            //player.transform.Rotate(90, 0, 0, Space.Self);
+            player.transform.Rotate(90, 0, 0, Space.Self);
 
             if (!animation.isPlaying)
             {
@@ -33,7 +33,7 @@ public class CameraTurn : MonoBehaviour {
         }
         else if (Input.GetButton("TurnRight"))
         {
-            //player.transform.Rotate(-90, 0, 0, Space.Self);
+            player.transform.Rotate(-90, 0, 0, Space.Self);
 
             if (!animation.isPlaying)
             {
