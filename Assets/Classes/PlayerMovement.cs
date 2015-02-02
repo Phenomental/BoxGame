@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     {
 		spawnPosition = transform.position;   
         Screen.showCursor = false;
+        rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 	
     }
 
