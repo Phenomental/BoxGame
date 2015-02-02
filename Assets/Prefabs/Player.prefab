@@ -101,7 +101,6 @@ MonoBehaviour:
   maxSpeed: 5
   explosion: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
   cam: {fileID: 419830, guid: 5c70d1383ad40df47ac3ea0b4657ff9c, type: 2}
-  isGrounded: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

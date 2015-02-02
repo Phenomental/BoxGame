@@ -5,13 +5,14 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     public float moveSpeed;
     public float maxSpeed = 5f;
-    public static GameObject explosion;
+   
+	public GameObject explosion;
     private static Vector3 spawnPosition;
 	public Transform cam;
 
     void Start()
     {
-        spawnPosition = transform.position;
+		spawnPosition = transform.position;   
         Screen.showCursor = false;
     }
 
@@ -74,9 +75,11 @@ public class PlayerMovement : MonoBehaviour {
 	void OnCollisionEnter(Collision hit)
 
     {
-        //if(hit.transform.tag == "Enemy")
-        //    Die();
-
+        if(hit.transform.tag == "Enemy")
+		{
+			Debug.Log("hit");
+            Die();
+		}
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
         {
@@ -84,10 +87,12 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    public static void Die()
+ 	 void Die()
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        transform.position = spawnPosition;
-        rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-    }
+
+		Instantiate(explosion, transform.position, transform.rotation);
+		transform.position = spawnPosition;
+		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
+	}
 }

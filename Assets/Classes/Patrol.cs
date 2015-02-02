@@ -7,8 +7,12 @@ public class Patrol : MonoBehaviour {
     public float moveSpeed;
     private int currentPoint;
 
+
+
+
     void Start()
     {
+
         transform.position = patrolPoints[currentPoint].position;
         currentPoint = 0;
     }
@@ -28,9 +32,4 @@ public class Patrol : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPoint].position, moveSpeed * Time.deltaTime);
     }
 
-	void OnCollisionEnter (Collision hit)
-	{
-		if (hit.transform.tag == "Player")
-						PlayerMovement.Die();
-	}
 }
