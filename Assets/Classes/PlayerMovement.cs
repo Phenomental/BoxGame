@@ -6,14 +6,20 @@ public class PlayerMovement : MonoBehaviour {
     public float moveSpeed;
     public float maxSpeed = 5f;
     public GameObject explosion;
+<<<<<<< HEAD
 
 	public bool isGrounded = false;
     private Vector3 spawnPosition;
 
+=======
+    private Vector3 spawnPosition;
+    private bool isGrounded;
+>>>>>>> origin/master
 	public Transform cam;
 
     void Start()
     {
+        //spawnRotation = Quaternion.identity;
         spawnPosition = transform.position;
         Screen.showCursor = false;
     }
@@ -106,6 +112,8 @@ public class PlayerMovement : MonoBehaviour {
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
         transform.position = spawnPosition;
+        //Destroy(gameObject);
+        //Instantiate(me, spawnPosition, spawnRotation);
         rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
     }
 }
