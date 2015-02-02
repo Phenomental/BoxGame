@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour {
 
  	 void Die()
     {
-         
+        audio.Play();
 
 		Instantiate(explosion, transform.position, transform.rotation);
 

@@ -1,19 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &155910
+--- !u!1 &150110
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 455910}
-  - 33: {fileID: 3355910}
-  - 65: {fileID: 6555910}
-  - 23: {fileID: 2355910}
-  - 54: {fileID: 5455910}
-  - 114: {fileID: 11455910}
-  - 82: {fileID: 8255910}
+  - 4: {fileID: 450110}
+  - 33: {fileID: 3350110}
+  - 65: {fileID: 6550110}
+  - 23: {fileID: 2350110}
+  - 54: {fileID: 5450110}
+  - 114: {fileID: 11450110}
+  - 82: {fileID: 8250110}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -21,24 +21,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &455910
+--- !u!4 &450110
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 5}
+  m_LocalPosition: {x: -0, y: 1.5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2355910
+--- !u!23 &2350110
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -53,19 +53,19 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3355910
+--- !u!33 &3350110
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5455910
+--- !u!54 &5450110
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -75,28 +75,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6555910
+--- !u!65 &6550110
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   m_Material: {fileID: 13400000, guid: 2c71cfb1b60823a4bb6bf27b92d37fae, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &8255910
+--- !u!82 &8250110
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: f97ec2728f9854743b1d074a0c133ce0, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -145,12 +145,12 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11455910
+--- !u!114 &11450110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 155910}
+  m_GameObject: {fileID: 150110}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fdc4ed1d7807f45a9e9f6690f7e650, type: 3}
@@ -159,8 +159,8 @@ MonoBehaviour:
   moveSpeed: 5
   maxSpeed: 5
   explosion: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
-  cam: {fileID: 0}
-  playerTransform: {fileID: 455910}
+  cam: {fileID: 419824, guid: 5c70d1383ad40df47ac3ea0b4657ff9c, type: 2}
+  playerTransform: {fileID: 450110}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -170,6 +170,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 155910}
+  m_RootGameObject: {fileID: 150110}
   m_IsPrefabParent: 1
   m_IsExploded: 1
