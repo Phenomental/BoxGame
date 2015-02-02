@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 spawnPosition;
 	public Transform cam;
 
+	public bool isGrounded = false;
+
     void Start()
     {
         spawnPosition = transform.position;
