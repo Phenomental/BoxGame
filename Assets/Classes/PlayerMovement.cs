@@ -10,10 +10,13 @@ public class PlayerMovement : MonoBehaviour {
     private static Vector3 spawnPosition;
 	public Transform cam;
 
+	public Transform playerTransform;
+
     void Start()
     {
 		spawnPosition = transform.position;   
         Screen.showCursor = false;
+	
     }
 
 
@@ -90,8 +93,12 @@ public class PlayerMovement : MonoBehaviour {
     {
 
 		Instantiate(explosion, transform.position, transform.rotation);
-		transform.position = spawnPosition;
-		rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
+		Instantiate(playerTransform, spawnPosition, transform.rotation);
+
+		Destroy(gameObject);
+
+		//rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
 	}
 }

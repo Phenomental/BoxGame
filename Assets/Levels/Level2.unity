@@ -13811,6 +13811,7 @@ MonoBehaviour:
   maxSpeed: 5
   explosion: {fileID: 100000, guid: 8d4acaa0eb2fffe45946918565f1ccbb, type: 2}
   cam: {fileID: 608340281}
+  playerTransform: {fileID: 2073932957}
 --- !u!54 &2073932953
 Rigidbody:
   m_ObjectHideFlags: 0
