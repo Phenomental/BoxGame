@@ -5,8 +5,8 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
     public float moveSpeed;
     public float maxSpeed = 5f;
-    public GameObject explosion;
-    private Vector3 spawnPosition;
+    public static GameObject explosion;
+    private static Vector3 spawnPosition;
 	public Transform cam;
 
     void Start()
