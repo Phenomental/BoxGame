@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour {
 
  	 void Die()
     {
+         
 
 		Instantiate(explosion, transform.position, transform.rotation);
 
