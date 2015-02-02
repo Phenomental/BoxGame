@@ -783,7 +783,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11433130, guid: 0f1fe9b88fb93ef4f9c9ae1f519ce099, type: 2}
       propertyPath: patrolPoints.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433130, guid: 0f1fe9b88fb93ef4f9c9ae1f519ce099, type: 2}
       propertyPath: m_LocalPosition.x
@@ -824,6 +824,10 @@ Prefab:
     - target: {fileID: 11433130, guid: 0f1fe9b88fb93ef4f9c9ae1f519ce099, type: 2}
       propertyPath: patrolPoints.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433130, guid: 0f1fe9b88fb93ef4f9c9ae1f519ce099, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f1fe9b88fb93ef4f9c9ae1f519ce099, type: 2}
@@ -6091,9 +6095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f78dec807a0937439e7647e03adf140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolPoints: []
   moveSpeed: 5
 --- !u!23 &1090931286
 Renderer:
