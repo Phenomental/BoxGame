@@ -92,13 +92,15 @@ public class PlayerMovement : MonoBehaviour {
 
  	 void Die()
     {
-        audio.Play();
+        //audio.Play();                                                   // Eksplosion (Lyd)
+        //Instantiate(explosion, transform.position, transform.rotation); // Eksplotsion
+        //Instantiate(playerTransform, spawnPosition, transform.rotation);// Ny Player
+        //Destroy(gameObject);                                            // Fjern gammel Player
 
-		Instantiate(explosion, transform.position, transform.rotation);
 
-		Instantiate(playerTransform, spawnPosition, transform.rotation);
-
-		Destroy(gameObject);
+         // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
+        Application.LoadLevel(Application.loadedLevel);
+        // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
 
 		//rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
