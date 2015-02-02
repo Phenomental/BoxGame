@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 spawnPosition;
 	public Transform cam;
 
-	public bool isGrounded = false;
-
     void Start()
     {
         spawnPosition = transform.position;
@@ -20,15 +18,10 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() 
 	{
-
 	        Vector3 cameraRelativeForward = cam.TransformDirection(Vector3.forward);
-		
 	       	Vector3 cameraRelativeRight = cam.TransformDirection(Vector3.right);
-	    
 	        Vector3 cameraRelativeLeft = cam.TransformDirection(Vector3.left);
-	        
 	        Vector3 cameraRelativeBack = cam.TransformDirection(Vector3.back);
-
 
         if (transform.position.y >= 0.45 || transform.position.y <= 0.55)
 		{
@@ -78,28 +71,20 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-
-    void OnCollisionExit(Collision hit)
-    {
-        if(hit.transform.tag == "Ground")
-            isGrounded = false;
-    }
-
 	void OnCollisionEnter(Collision hit)
 
     {
-        if(hit.transform.tag == "Enemy")
-            Die();
+        //if(hit.transform.tag == "Enemy")
+        //    Die();
 
 
         if(hit.transform.tag == "Ground" || hit.transform.tag == "Wall")
-        { 
-            isGrounded = true;
+        {
             rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
-    void Die()
+    public static void Die()
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
         transform.position = spawnPosition;
