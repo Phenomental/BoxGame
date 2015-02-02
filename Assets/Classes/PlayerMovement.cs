@@ -77,7 +77,6 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(hit.transform.tag == "Enemy")
 		{
-			Debug.Log("hit");
             Die();
 		}
 
