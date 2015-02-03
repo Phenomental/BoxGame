@@ -23,34 +23,28 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() 
 	{
-	        Vector3 cameraRelativeForward = cam.TransformDirection(Vector3.forward);
-	       	Vector3 cameraRelativeRight = cam.TransformDirection(Vector3.right);
-	        Vector3 cameraRelativeLeft = cam.TransformDirection(Vector3.left);
-	        Vector3 cameraRelativeBack = cam.TransformDirection(Vector3.back);
+        // Move direction
+	    Vector3 cameraRelativeForward = cam.TransformDirection(Vector3.forward);
+	    Vector3 cameraRelativeRight = cam.TransformDirection(Vector3.right);
+	    Vector3 cameraRelativeLeft = cam.TransformDirection(Vector3.left);
+	    Vector3 cameraRelativeBack = cam.TransformDirection(Vector3.back);
 
-        if (transform.position.y >= 0.45 || transform.position.y <= 0.55)
+        float distanceToGround = 0f;
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+            distanceToGround = hit.distance;
+        
+        if (distanceToGround < .51)
 		{
-       
-        if (transform.position.y < .55)
-			{
-
-                if(Input.GetButton("Forward"))
-                {
-                    rigidbody.MovePosition(rigidbody.position + cameraRelativeForward * moveSpeed * Time.deltaTime);
-                }
-                if(Input.GetButton("Left"))
-                {
-                    rigidbody.MovePosition(rigidbody.position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
-                }
-                if(Input.GetButton("Right"))
-                {
-                    rigidbody.MovePosition(rigidbody.position + cameraRelativeRight * moveSpeed * Time.deltaTime);
-                }
-                if(Input.GetButton("Reverse"))
-                {
-                    rigidbody.MovePosition(rigidbody.position + cameraRelativeBack * moveSpeed * Time.deltaTime);
-                }
-            }
+            if(Input.GetButton("Forward"))
+                rigidbody.MovePosition(rigidbody.position + cameraRelativeForward * moveSpeed * Time.deltaTime);
+            if(Input.GetButton("Left"))
+                rigidbody.MovePosition(rigidbody.position + cameraRelativeLeft * moveSpeed * Time.deltaTime);
+            if(Input.GetButton("Right"))
+                rigidbody.MovePosition(rigidbody.position + cameraRelativeRight * moveSpeed * Time.deltaTime);
+            if(Input.GetButton("Reverse"))
+                rigidbody.MovePosition(rigidbody.position + cameraRelativeBack * moveSpeed * Time.deltaTime);
         }
      
 
