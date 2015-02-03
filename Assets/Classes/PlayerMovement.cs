@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 		spawnPosition = transform.position;   
         Screen.showCursor = false;
         rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-	
+		CameraTurn.player = this.gameObject;
     }
 
 
@@ -92,14 +92,14 @@ public class PlayerMovement : MonoBehaviour {
 
  	 void Die()
     {
-        //audio.Play();                                                   // Eksplosion (Lyd)
-        //Instantiate(explosion, transform.position, transform.rotation); // Eksplotsion
-        //Instantiate(playerTransform, spawnPosition, transform.rotation);// Ny Player
-        //Destroy(gameObject);                                            // Fjern gammel Player
+        audio.Play();                                                   // Eksplosion (Lyd)
+        Instantiate(explosion, transform.position, transform.rotation); // Eksplotsion
+        Instantiate(playerTransform, spawnPosition, transform.rotation);// Ny Player
+        Destroy(gameObject);                                            // Fjern gammel Player
 
 
          // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
-        Application.LoadLevel(Application.loadedLevel);
+        //Application.LoadLevel(Application.loadedLevel);
         // MIDLERTIDIG LØSNING TIL RESPAWN-PROBLEM
 
 		//rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;

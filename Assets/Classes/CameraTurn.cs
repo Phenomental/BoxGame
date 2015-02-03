@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CameraTurn : MonoBehaviour {
 
     public static int camLocation;
-    public GameObject player;
+    public static GameObject player;
 
     void Start()
     {
@@ -13,7 +14,7 @@ public class CameraTurn : MonoBehaviour {
 
 	void Update () {
         
-
+		//Debug.Log (player.gameObject.name);
         if (Input.GetButtonDown("TurnLeft"))
         {
 
